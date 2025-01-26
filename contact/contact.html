@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link
+      rel="stylesheet"
+      href="https://gistcdn.githack.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css"
+    />
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+  <div class="navigation">
+  <div class="menu-panel" id="menuPanel">
+  <i class="ri-close-line" id="close-button"></i>
+    <div class="links">
+      <a href="#">About <i class="ri-arrow-right-up-line"></i> </a>
+      <a href="#">Work <i class="ri-arrow-right-up-line"></i> </a>
+      <a href="#">Gallery <i class="ri-arrow-right-up-line"></i> </a>
+      <a href="#">Clients <i class="ri-arrow-right-up-line"></i> </a>
+      <a href="#">Contact <i class="ri-arrow-right-up-line"></i> </a>
+    </div>
+  </div>
+  <h3 class="menu-label" id="menuLabel">Menu</h3>
+</div>
+
+
+    <div class="contact-container">
+      <div class="contact-img"></div>
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        class="contact-right"
+      >
+        <div class="contact-right-title">
+          <h2>Let's Get in Touch</h2>
+        </div>
+        <input
+          type="hidden"
+          name="access_key"
+          value="444d5eb3-6640-496e-8e4c-fae0ae0537dc"
+        />
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          class="contact-inputs"
+          required
+        />
+        <input
+          type="text"
+          name="email"
+          placeholder="Your Email"
+          class="contact-inputs"
+          required
+        />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div id="footer">
+      <h2>(Connect)</h2>
+      <h1>Let's Talk</h1>
+      <div class="button">
+        <a href="">Get in Touch</a>
+      </div>
+      <h5>© Made by <a href="../index.html">Rayyan Ahmed</a></h5>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
