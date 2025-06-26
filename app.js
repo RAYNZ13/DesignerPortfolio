@@ -192,6 +192,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Handle gallery item click
+  const gallery = document.querySelector(".box");
+  gallery.addEventListener("click", () => {
+    window.location.href = "/gallery/index.html";
+  });
+
   // MARQUEE INFINITE SCROLL
   const marquee = document.querySelector(".marquee");
   const cloneItems = () => {
