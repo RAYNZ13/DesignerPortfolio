@@ -1,11 +1,21 @@
-const menuOpenEl = document.getElementById('menuLabel');
-const menuCloseEl = document.getElementById('close-button');
-const menuPanelEl = document.getElementById('menuPanel');
+  const menuOpenEl = document.getElementById('menuLabel');
+  const menuCloseEl = document.getElementById('close-button');
+  const menuPanelEl = document.getElementById('menuPanel');
 
-menuOpenEl.addEventListener('click', () => {
-  menuPanelEl.style.height = "100%"; // Set the target height
-});
+  if (menuOpenEl && menuPanelEl) {
+    menuOpenEl.addEventListener('click', () => {
+      menuPanelEl.classList.add('open');
+    });
+  }
 
-menuCloseEl.addEventListener('click', () => {
-  menuPanelEl.style.height = "0"; // Reset the height
-});
+  if (menuCloseEl && menuPanelEl) {
+    menuCloseEl.addEventListener('click', () => {
+      menuPanelEl.classList.remove('open');
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuPanelEl.classList.contains('open')) {
+      menuPanelEl.classList.remove('open');
+    }
+  });

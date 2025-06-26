@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rayyan Ahmed - Digital Designer</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <link
       rel="stylesheet"
       href="https://gistcdn.githack.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css"
@@ -12,16 +13,23 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navigation">
-      <h3 class="menu-label">Menu</h3>
-    </nav>
+</head>
+<body>
+  <section id="navigation">
+    <div class="menu-panel" id="menuPanel">
+      <i class="ri-close-line" id="close-button" aria-label="Close menu" tabindex="0"></i>
+      <div class="links">
+        <a href="../index.html">Home</a>
+        <a href="/gallery/index.html">Gallery</a>
+        <a href="#clients-section" onclick="scrollToSection(event, 'clients-section')">Clients</a>
+        <a href="../contact/contact.html">Contact</a>
+      </div>
+    </div>
+    <h3 class="menu-label" id="menuLabel" tabindex="0" aria-label="Open menu">Menu</h3>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
+    <!-- hero-section -->
+    <section id="hero-section">
       <div class="hero-content">
         <h1 class="hero-title">Rayyan Ahmed</h1>
         <h1 class="hero-subtitle">Digital Designer</h1>
@@ -33,11 +41,15 @@
           </div>
         </div>
       </div>
-      <div class="hero-image"></div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
+    <section id="image-section" class="target-section">
+      <!-- <img src="./assest/hero_image.jpg" alt="hero-image" class="hero-image"> -->
+      <img src="./assest/image.webp" alt="hero-image" class="hero-image">
+    </section>
+    
+
+    <section id="about-section">
       <h2>
         As a digital designer, I focus on producing top-notch and impactful
         digital experiences.
@@ -53,9 +65,9 @@
         </div>
       </div>
     </section>
+    
 
-    <!-- Work Section -->
-    <section id="work-content">
+    <section id="work-section">
       <div class="horizontal-line"></div>
       <div id="work-content-wrapper">
         <div class="work-content-left">
@@ -69,11 +81,12 @@
               <h2>Digital Design</h2>
               <p>
                 I specialize in crafting captivating digital designs that
-                captivate and motivate your audience, bringing your brand to
+                captivate vand motivate your audience, bringing your brand to
                 life with my creative expertise.
               </p>
             </div>
             <div class="drop-line-small-right"></div>
+            <div class="new-drop-line"></div>
             <div class="work-content-right-content content">
               <h2>Logo Design</h2>
               <p>
@@ -84,6 +97,7 @@
               </p>
             </div>
           </div>
+          <div class="new-drop-line-second"></div>
           <div class="horizontal-line-small"></div>
           <div class="work-content-right-second">
             <div class="work-content-right-content-bottom content">
@@ -120,13 +134,15 @@
       </div>
     </section>
 
-    <!-- Galley section -->
-    <section id="galley-section">
+    <section id="gallery-section">
       <div class="container-wrapper">
         <div class="overlay">
+        <a href="/gallery/index.html" class="arrow-link">
           <div class="arrow">
             <i class="ri-arrow-right-up-line"></i>
           </div>
+        </a>
+
         </div>
         <div class="container">
           <!-- Your masonry grid content -->
@@ -228,7 +244,7 @@
       </div>
     </section>
 
-    <section id="clients-content">
+    <section id="clients-section"
       <div class="clients-content-wrapper">
         <div class="clients-content-left">
           <h3>(My Clients)</h3>
@@ -237,14 +253,15 @@
         <div class="drop-line-small-client"></div>
         <div class="client-content-right">
           <div class="client-content-text">
-            <h2>Masjide Ahle Hadees - Kodungaiyur</h2>
+            <h2>Masjide Ahle Hadees -Kodungaiyur</h2>
             <p>
               Serving as a Social Media Manager since 2021, overseeing content
-              creation, editing, and publishing to enhance the organization’s
+              creation, editing, and publishing to enhance the organization's
               online presence and engagement. Successfully managed YouTube
               content and maintained alignment with the organization's mission.
             </p>
           </div>
+          <div class="drop-line-client"></div>
           <div class="horizontal-line-small-client"></div>
           <div class="client-content-text">
             <h2>Microsoft Innovations Club - VITC</h2>
@@ -254,15 +271,16 @@
               closely with the team to meet deadlines and quality standards.<br /><br />
               <b>Design Lead (2023-2024): </b>Led the design team, delegated
               tasks, mentored members, and ensured timely delivery of innovative
-              and high-quality designs that aligned with the club’s objectives.
+              and high-quality designs that aligned with the club's objectives.
             </p>
           </div>
+          <div class="drop-line-client-second"></div>
           <div class="horizontal-line-small-client"></div>
           <div class="client-content-text">
             <h2>Markazul Arqam</h2>
             <p>
               Worked as a freelance graphic designer, specializing in creating
-              professional posters and logos tailored to the client’s branding
+              professional posters and logos tailored to the client's branding
               needs, ensuring unique and impactful visuals.
             </p>
           </div>
@@ -270,7 +288,7 @@
       </div>
     </section>
 
-    <section id="footer">
+    <section id="footer-section">
       <h2>(Connect)</h2>
       <h1>Let's Talk</h1>
       <div class="button">
@@ -278,8 +296,7 @@
       </div>
       <h5>© Made by <a href="">Rayyan Ahmed</a></h5>
     </section>
-
-    <!-- Scripts -->
+    
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
       integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
@@ -292,6 +309,21 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
     <script src="app.js"></script>
-  </body>
+    <script>
+      function scrollToSection(event, sectionId) {
+        event.preventDefault();
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Close the menu if open
+        const menuPanel = document.getElementById('menuPanel');
+        if (menuPanel && menuPanel.classList.contains('open')) {
+          menuPanel.classList.remove('open');
+        }
+      }
+    </script>
+</body>
 </html>

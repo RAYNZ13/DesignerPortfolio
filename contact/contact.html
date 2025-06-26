@@ -16,19 +16,18 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-  <div class="navigation">
-  <div class="menu-panel" id="menuPanel">
-  <i class="ri-close-line" id="close-button"></i>
-    <div class="links">
-      <a href="#">About <i class="ri-arrow-right-up-line"></i> </a>
-      <a href="#">Work <i class="ri-arrow-right-up-line"></i> </a>
-      <a href="#">Gallery <i class="ri-arrow-right-up-line"></i> </a>
-      <a href="#">Clients <i class="ri-arrow-right-up-line"></i> </a>
-      <a href="#">Contact <i class="ri-arrow-right-up-line"></i> </a>
-    </div>
-  </div>
-  <h3 class="menu-label" id="menuLabel">Menu</h3>
-</div>
+    <section id="navigation">
+      <div class="menu-panel" id="menuPanel">
+        <i class="ri-close-line" id="close-button" aria-label="Close menu" tabindex="0"></i>
+        <div class="links">
+          <a href="../index.html">Home</a>
+          <a href="/gallery/index.html">Gallery</a>
+          <a href="/#clients-section">Clients</a>
+          <a href="../contact/contact.html">Contact</a>
+        </div>
+      </div>
+      <h3 class="menu-label" id="menuLabel" tabindex="0" aria-label="Open menu">Menu</h3>
+    </section>
 
 
     <div class="contact-container">
@@ -64,14 +63,15 @@
         <button type="submit">Submit</button>
       </form>
     </div>
-    <div id="footer">
+    
+    <section id="footer-section">
       <h2>(Connect)</h2>
       <h1>Let's Talk</h1>
       <div class="button">
-        <a href="">Get in Touch</a>
+        <a href="./contact/contact.html" target="_blank">Get in Touch</a>
       </div>
-      <h5>© Made by <a href="../index.html">Rayyan Ahmed</a></h5>
-    </div>
+      <h5>© Made by <a href="">Rayyan Ahmed</a></h5>
+    </section>
 
     <script src="app.js" type="module"></script>
   </body>

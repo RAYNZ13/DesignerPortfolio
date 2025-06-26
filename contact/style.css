@@ -1,6 +1,9 @@
 :root {
-  --black: #1b1212;
-  --white: #ffff;
+  --background: rgb(52,51,49);
+  --gradient: linear-gradient(70deg, rgba(52,51,49,1) 0%, rgba(16,11,11,1) 100%);
+  --white: #fff;
+  --whitebackground: rgb(255,255,255);
+  --whitegradient: linear-gradient(267deg, rgba(255,255,255,1) 21%, rgba(221,221,221,1) 100%);
 }
 
 * {
@@ -18,115 +21,118 @@ html {
   padding: 0;
   background-color: var(--black);
 }
-
-/* .navigation {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
-  padding: 10px 20px;
-  filter: drop-shadow(0px 0px 5px rgba(159, 157, 157, 0.5));
-  transition: transform 0.3s ease;
-}
-
-.navigation:hover {
-  cursor: pointer;
-  transform: translateY(-5px);
-}
-
+/* Menu-Panl */
 .menu-label {
-  position fixed;
-    top: 20px;
-  right: 20px;
-  background-color: var(--white);
-  color: var(--black);
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: 500;
-  transition: all 0.3s ease-in-out;
-}
+    position: fixed;
+    top: 2.5vh;
+    right: 2vw;
+    background: var(--whitebackground);
+    background: radial-gradient(circle, rgba(255,255,255,1) 21%, rgba(221,221,221,1) 100%);
+    color: var(--background);
+    padding: 0.6em 1.3em;
+    border-radius: 50px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    z-index: 1100;
+    cursor: pointer;
+    transition: transform 0.4s ease, background 0.3s, color 0.3s, box-shadow 0.3s;
+  }
+  .menu-label:hover {
+    background: var(--background);
+    background: var(--gradient);
+    color: var(--white);
+    border: 1px solid var(--white);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+    transform: scale(1.05);
+  }
 
-.menu-label:hover {
-  background-color: var(--black);
-  color: var(--white);
-} */
+  .menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    background: var(--whitebackground);
+    background: var(--whitegradient);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    clip-path: circle(0% at 100% 0);
+    transition: clip-path 0.6s ease-in-out;
+    text-align: center;
+    z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+  }
+  .menu-panel.open {
+    clip-path: circle(150% at 50% 50%);
+    pointer-events: all;
+  }
 
-.menu-label {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: var(--white);
-  color: var(--black);
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: 500;
-  transition: all 0.3s ease-in-out;
-  filter: drop-shadow(0px 0px 3px black);
-}
+  .menu-panel .links {
+    margin-top: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5em;
+  }
+  .menu-panel a {
+    text-decoration: none;
+    font-size: 3rem;
+    color: var(--background);
+    font-weight: 500;
+    letter-spacing: 1px;
+    display: block;
+    padding: 0.3em 1.2em;
+    border-radius: 30px;
+    transition: transform 0.3s, background 0.2s, color 0.2s, box-shadow 0.2s;
+  }
+  .menu-panel a:hover {
+    background: var(--background);
+    color: var(--white);
+    transform: scale(1.05);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  }
 
-.menu-label:hover {
-  background-color: var(--black);
-  color: var(--white);
-  cursor: pointer;
-}
+  .menu-panel #close-button {
+    position: absolute;
+    top: 2vh;
+    right: 2vw;
+    font-size: 2.5rem;
+    color: var(--background);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s, background 0.2s, color 0.2s;
+  }
+  .menu-panel #close-button:hover {
+    background: var(--background);
+    background: var(--gradient);
+    color: var(--white);
+    transform: rotate(90deg);
+  }
 
-.menu-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 0;
-  width: 100%;
-  /* padding: 40px; */
-  background-color: var(--black);
-  overflow: hidden;
-  transition: height 0.3s ease; /* Smooth sliding */
-  text-align: center;
-  z-index: 1000;
-}
+  @media (max-width: 700px) {
+    .menu-panel .links {
+      gap: 1.2em;
+    }
+    .menu-panel a {
+      font-size: 2.5rem;
+      padding: 0.3em 0.7em;
+    }
+    .menu-label {
+      font-size: 1.1rem;
+      padding: 0.4em 1em;
+    }
+  }
 
-.menu-panel .links{
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-}
-
-.menu-panel a {
-  /* padding: 8px 8px 8px 32px; */
-  text-decoration: none;
-  font-size: 5rem;
-  color: var(--white);
-  display: block;
-  transition: color 0.3s;
-}
-
-.menu-panel a:hover {
-  color: #818181;
-}
-
-.menu-panel a>i{
-  font-size: 2rem;
-}
-
-.menu-panel #close-button {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 36px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.menu-panel #close-button:hover{
-  background-color: var(--white);
-  color: black;
-  border-radius: 20px;
-}
+  .navbar, .nav-logo, .nav-links {
+    display: none !important;
+  }
 
 
 .contact-container {
@@ -136,32 +142,38 @@ html {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background-color: var(--white);
+  background: var(--background);
+  background: var(--gradient);
+  color: var(--white);
 }
 
 .contact-img {
-  background-image: url('https://i.postimg.cc/FFCJfMd9/image.png');
+  background-image: url('../assest/contact_image.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   width: 50%;
-  height: 600px; /* Fixed height for large screens */
+  height: 100vh; /* Fixed height for large screens */
 }
 
 .contact-right {
-  color: var(--black);
+  color: var(--whitebackground);
+  height: 100vh; /* Fixed height for large screens */
   width: 50%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   padding: 40px;
-  background-color: var(--white);
+  background: var(--background);
+  background: radial-gradient(circle, rgba(52,51,49,1) 0%, rgba(16,11,11,1) 100%);
+  ;
 }
 
 .contact-right-title h2 {
   font-size: 4.5rem;
   text-align: center;
-  color: var(--black);
+  color: var(--whitebackground);
 }
 
 .contact-inputs,
@@ -169,11 +181,12 @@ html {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
-  border-radius: 8px;
-  background-color: #f1f1f1;
+  border-radius: 20px;
+  background : var(--whitebackground);
+  background : var(--whitegradient);
   border: 1px solid #ccc;
   font-size: 1rem;
-  color: var(--black);
+  color: var(--background);
   transition: background-color 0.3s ease;
 }
 
@@ -189,155 +202,152 @@ html {
 }
 
 button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  height: 50px;
-  border-radius: 50px;
-  background-color: var(--black);
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 2px;
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  background: var(--whitebackground);
+  background: linear-gradient(267deg, rgba(255,255,255,1) 21%, rgba(221,221,221,1) 100%);
+  color: var(--background);
   text-transform: uppercase;
-  border: 2px solid #fff;
+  font-size: 1.5rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 1;
+  transition: all 0.5 ease-in-out;
 }
-
-button:before {
-  content: "";
+button:after {
+  content: '';
   position: absolute;
-  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--whitebackground);
+  background: radial-gradient(circle, rgba(255,255,255,1) 21%, rgba(221,221,221,1) 100%);
+  color: var(--background);
+  border-radius: 10rem;
+  z-index: -2;
+}
+button:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: rgb(34, 32, 32);
-  border-radius: 5px;
-  transition: width 0.4s ease-in-out;
+  background: var(--whitebackground);
+  background: linear-gradient(45deg, rgba(255,255,255,1) 21%, rgba(221,221,221,1) 100%);
+  color: var(--background);
+  transition: all 0.5s ease-in-out;
+  border-radius: 10rem;
   z-index: -1;
 }
-
 button:hover {
-  transform: scale(1.05);
+  color: var(--background);
+  cursor: pointer;
+  transform: scale(1.1);
 }
-
 button:hover:before {
   width: 100%;
 }
+button > a {
+  text-decoration: none;
+  color: var(--background);
+}
 
-#footer {
+#footer-section{
+  position: relative;
+  background: var(--whitebackground);
+  background: var(--whitegradient);
+  color: var(--background);
   width: 100%;
-  height: 70%;
-  background-color: var(--black);
+  height: auto;
+  padding: 60px;
+  padding-bottom: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  color: var(--white);
+  justify-content: space-between;
   align-items: center;
 }
 
-#footer > h2 {
+#footer-section > h2 {
   font-size: 2rem;
-  transition: color 0.3s ease;
 }
-
-#footer > h1 {
-  font-size: 7rem;
-  transition: color 0.3s ease;
-}
-
-#footer > h2:hover,
-#footer > h1:hover {
-  color: var(--white);
+#footer-section > h1 {
+  font-size: 10rem;
 }
 
 .button {
   display: inline-block;
   padding: 0.75rem 1.25rem;
   border-radius: 10rem;
-  color: var(--black);
+  background: var(--background);
+  background: linear-gradient(180deg, rgba(52,51,49,1) 0%, rgba(16,11,11,1) 100%);
+  color: var(--white);
   text-transform: uppercase;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 1.5rem;
   letter-spacing: 0.15rem;
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
   z-index: 1;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5 ease-in-out;
 }
-
 .button:after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--white);
-  color: var(--black);
-  font-weight: 400;
+  background: var(--background);
+  background: linear-gradient(180deg, rgba(52,51,49,1) 0%, rgba(16,11,11,1) 100%);
   border-radius: 10rem;
   z-index: -2;
 }
-
 .button:before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: rgb(224, 224, 224);
-  color: var(--black);
+  background: var(--background);
+  background: linear-gradient(70deg, rgba(52,51,49,1) 0%, rgba(16,11,11,1) 100%);
   transition: all 0.5s ease-in-out;
   border-radius: 10rem;
   z-index: -1;
 }
-
 .button:hover {
-  color: var(--black);
+  color: var(--background);
   cursor: pointer;
   transform: scale(1.1);
 }
-
 .button:hover:before {
   width: 100%;
 }
-
 .button > a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--whitebackground);
+}
+
+#footer-section > h5 {
+  font-size: 1.2rem;
+  margin-top: 2.2rem;
   font-weight: 400;
 }
 
-#footer > h5 {
-  font-size: 20px;
-  margin-top: 6rem;
-  font-weight: 400;
-  transition: color 0.3s ease;
-}
-
-#footer > h5 > a {
+#footer-section > h5 > a {
   position: relative;
   text-decoration: none;
   padding: 9px;
-  background-color: var(--white);
+  background-color: var(--background);
   border-radius: 20px;
-  color: var(--black);
-  letter-spacing: 2px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#footer > h5 > a:hover {
-  background-color: var(--black);
   color: var(--white);
+  letter-spacing: 2px;
 }
-
 /* Responsive Design */
 @media (max-width: 1024px) {
   .menu-panel .links{
@@ -374,21 +384,21 @@ button:hover:before {
     width: 100%;
   }
 
-  #footer {
+  #footer-section {
     height: auto;
     padding: 30px 15px;
     gap: 15px;
   }
 
-  #footer > h2 {
+  #footer-section > h2 {
     font-size: 1.5rem;
   }
 
-  #footer > h1 {
-    font-size: 5rem;
+  #footer-section > h1 {
+    font-size: 6rem;
   }
 
-  #footer > h5 {
+  #footer-section > h5 {
     margin-top: 3rem;
     font-size: 1rem;
   }
@@ -429,27 +439,42 @@ button:hover:before {
     height: 45px;
   }
 
-  #footer {
-    padding: 30px;
+  #footer-section{
+    padding-top: 30px;
   }
-
-  #footer > h1 {
-    font-size: 5rem;
+  #footer-section > h1 {
+    font-size: 9rem;
   }
 }
 
 @media (max-width: 480px) {
-  /* .navigation {
-    padding: 10px 20px;
-  } */
+  .menu-label {
+    padding: 0.3em 0.7em;
+    font-size: 1rem;
+    top: 2vh;
+    right: 3vw;
+  }
+
+  .menu-panel a {
+    font-size: 2.5rem;
+  }
+
+  .menu-panel .links {
+    gap: 1em;
+  }
+
+  .menu-panel #close-button {
+    font-size: 1.8rem;
+  }
 
   .contact-img {
     width: 100%;
-    height: 300px;
+    height: 400px;
   }
 
   .contact-right {
-    padding: 20px;
+    height: auto;
+    padding: 40px 20px;
     width: 100%;
     gap: 10px;
   }
@@ -464,17 +489,41 @@ button:hover:before {
     font-size: 0.9rem;
   }
 
-  #footer {
-    padding: 30px 10px;
+  #footer-section{
+    position: relative;
+    background-color: rgb(114, 90, 31);
+    width: 100%;
     height: auto;
-    gap: 10px;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
-
-  #footer > h1 {
+  
+  #footer-section > h2 {
+    font-size: 1.5rem;
+  }
+  #footer-section > h1 {
     font-size: 5rem;
   }
 
-  #footer > h5 {
+  .button {
+    font-size: 1.2rem;
+  }
+  #footer-section > h5 {
     font-size: 1rem;
+    margin-top: 2rem;
+    font-weight: 400;
+  }
+  
+  #footer-section > h5 > a {
+    position: relative;
+    text-decoration: none;
+    padding: 5px;
+    background-color: var(--background);
+    border-radius: 20px;
+    color: var(--white);
+    letter-spacing: 2px;
   }
 }
