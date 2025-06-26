@@ -490,6 +490,7 @@ body{
 
 .container .box img {
   max-width: 100%;
+  margin: 5px 0px;
   border-radius: 15px;
 }
 
@@ -1138,7 +1139,7 @@ body{
 
   .container {
     columns: 2; /* Reduce the number of columns to 2 */
-    column-gap: 10px;
+    column-gap: 15px;
     margin: 0;
     left: 0;
     right: 0;
