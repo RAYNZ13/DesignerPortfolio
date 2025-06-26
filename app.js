@@ -119,8 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  animateLine(".drop-line-small", "100%", "#work-content");
-  animateLine(".drop-line-small-right", "42%", "#work-content");
+  animateLine(".drop-line-small", "100%", "#work-section");
+  animateLine(".drop-line-small-right", "42%", "#work-section");
 
   const animateHorizontal = (selector, trigger) => {
     const line = document.querySelector(selector);
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ".horizontal-line",
     ".horizontal-line-bottom",
     ".horizontal-line-small"
-  ].forEach((selector) => animateHorizontal(selector, "#work-content"));
+  ].forEach((selector) => animateHorizontal(selector, "#work-section"));
 
   // NEW DROP LINES FOR MOBILE
   const triggerWork = document.querySelector("#work-content-wrapper");
@@ -193,9 +193,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Handle gallery item click
-  const gallery = document.querySelector(".box");
-  gallery.addEventListener("click", () => {
-    window.location.href = "/gallery/index.html";
+  const boxes = document.querySelectorAll(".box");
+
+  boxes.forEach(box => {
+    box.addEventListener("click", () => {
+      window.location.href = "/gallery/index.html";
+    });
   });
 
   // MARQUEE INFINITE SCROLL
